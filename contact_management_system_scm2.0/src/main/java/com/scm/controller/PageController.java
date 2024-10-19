@@ -56,6 +56,12 @@ public class PageController {
 		System.out.println("PageController.postMethodName()");
 		return  "register";
 	}
+	// procssing methods
+	@RequestMapping( value ="do_register", method=RequestMethod.POST)
+	public String procssingRegister(){
+		System.out.println("PageController.procssingRegister()");
+		return "redirect:/register";
+	}
 	
 
 	
