@@ -58,6 +58,8 @@ public class OAuthAuthenicationSuccessHandler implements AuthenticationSuccessHa
                     user.setProfilePic(userOauth2.getAttribute("picture").toString());
                     user.setProviderUserId(userOauth2.getName());
                     user.setProvider(Providers.GOOGLE);
+                    user.setAbout("This is user for login Google");
+                    user.setPassword("dummy");
                   
                 }
                 //github login 
@@ -74,6 +76,8 @@ public class OAuthAuthenicationSuccessHandler implements AuthenticationSuccessHa
                     user.setProfilePic(picture);
                     user.setProviderUserId(providerid);
                     user.setProvider(Providers.GITHUB);
+                    user.setAbout("This is user for login GitHub");
+                    user.setPassword("dummy");
 
             }
              //facebook login
