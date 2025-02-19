@@ -50,7 +50,7 @@ public class SecurityConfig {
         httpSecurity.formLogin(formLogin->{
             formLogin.loginPage("/login");
             formLogin.loginProcessingUrl("/authenticate");
-            formLogin.successForwardUrl("/user/dashbaord");
+            formLogin.successForwardUrl("/user/profile");
          //   formLogin.failureForwardUrl("/login?error=true");
             //formLogin.defaultSuccessUrl("/home");
             formLogin.usernameParameter("email");

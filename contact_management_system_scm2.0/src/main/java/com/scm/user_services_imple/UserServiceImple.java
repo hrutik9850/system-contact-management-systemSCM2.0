@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.apache.activemq.filter.function.replaceFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,5 +92,12 @@ public class UserServiceImple implements UserServices {
     public List<User> getAllUser() {
        return userRepo.findAll();
     }
+
+    @Override
+    public User getUserByEmail(String username) {
+        return userRepo.findByEmail(username)
+                       .orElse(null);
+    }
+    
 
 }

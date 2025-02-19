@@ -71,6 +71,9 @@
 .-z-10 {
   z-index: calc(10 * -1);
 }
+.z-40 {
+  z-index: 40;
+}
 .z-auto {
   z-index: auto;
 }
@@ -248,6 +251,12 @@
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+.h-2\/4 {
+  height: calc(2/4 * 100%);
+}
+.h-full {
+  height: 100%;
+}
 .h-screen {
   height: 100vh;
 }
@@ -278,6 +287,9 @@
 .min-w-screen {
   min-width: 100vw;
 }
+.flex-1 {
+  flex: 1;
+}
 .flex-auto {
   flex: auto;
 }
@@ -295,6 +307,9 @@
 }
 .shrink {
   flex-shrink: 1;
+}
+.shrink-0 {
+  flex-shrink: 0;
 }
 .flex-grow {
   flex-grow: 1;
@@ -363,6 +378,10 @@
   --tw-translate-y: 100%;
   translate: var(--tw-translate-x) var(--tw-translate-y);
 }
+.-translate-x-full {
+  --tw-translate-x: -100%;
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}
 .-translate-z-px {
   --tw-translate-z: -1px;
   translate: var(--tw-translate-x) var(--tw-translate-y) var(--tw-translate-z);
@@ -417,6 +436,9 @@
 }
 .cursor-move {
   cursor: move;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 .cursor-text {
   cursor: text;
@@ -987,6 +1009,9 @@
 .scroll-smooth {
   scroll-behavior: smooth;
 }
+.rounded-full {
+  border-radius: calc(infinity * 1px);
+}
 .border {
   border-style: var(--tw-border-style);
   border-width: 1px;
@@ -1076,6 +1101,10 @@
 .bg-conic {
   --tw-gradient-position: in oklab;
   background-image: conic-gradient(var(--tw-gradient-stops));
+}
+.bg-gradient-to-br {
+  --tw-gradient-position: to bottom right in oklab;
+  background-image: linear-gradient(var(--tw-gradient-stops));
 }
 .bg-radial {
   --tw-gradient-position: in oklab;
@@ -1736,6 +1765,10 @@
   --tw-duration: 0ms;
   transition-duration: 0ms;
 }
+.duration-75 {
+  --tw-duration: 75ms;
+  transition-duration: 75ms;
+}
 .duration-200 {
   --tw-duration: 200ms;
   transition-duration: 200ms;
@@ -1917,6 +1950,14 @@
 }
 .transform-view {
   transform-box: view-box;
+}
+.hover\:bg-gradient-to-bl {
+  &:hover {
+    @media (hover: hover) {
+      --tw-gradient-position: to bottom left in oklab;
+      background-image: linear-gradient(var(--tw-gradient-stops));
+    }
+  }
 }
 .before\:hover\:text-center {
   &::before {
