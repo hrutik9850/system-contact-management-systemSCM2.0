@@ -92,7 +92,7 @@ public class PageController {
 	}
 	// procssing methods
 	@RequestMapping( value ="do_register", method=RequestMethod.POST)
-	public String procssingRegister(@Valid @ModelAttribute("userform") Userform userform ,BindingResult rBindingResult ,HttpSession session){
+	public String procssingRegister(@Valid @ModelAttribute("userfrom") Userform userform ,BindingResult rBindingResult ,HttpSession session){
 		System.out.println("PageController.procssingRegister()");
 		System.out.println("________________________________________");
 		//fetch form data 

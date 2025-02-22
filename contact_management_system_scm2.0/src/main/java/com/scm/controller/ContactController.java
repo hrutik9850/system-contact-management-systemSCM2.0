@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +15,8 @@ import com.scm.form.Contact_Form;
 import com.scm.helper.Helper;
 import com.scm.services.ContactService;
 import com.scm.services.UserServices;
+
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -29,17 +33,24 @@ public class ContactController {
     @RequestMapping("/add")
     public String showAddContactPage(Model model){
         Contact_Form contact_Form = new Contact_Form();
-    
+            
         model.addAttribute("contactForm", contact_Form);
     
         return"/user/addContact";
     }
     @RequestMapping(value = "/add", method=RequestMethod.POST)
-    public String saveContact(@ModelAttribute Contact_Form contact_Form ,Authentication authentication) {
+    public String saveContact(@Valid @ModelAttribute("contactForm") Contact_Form contact_Form ,BindingResult bindingResult , Authentication authentication) {
        //processe the from data 
 
 
        //TODOO THE valedate the form data 
+            //1 form valdation 
+            if (bindingResult.hasErrors()) {
+                System.out.println("------------------------------------ error--------------------------------------------------");
+                
+                return"user/addContact";
+                
+            }
 
        
         String username = Helper.getEmailFOLoggelUser(authentication);
@@ -51,6 +62,7 @@ public class ContactController {
         contact.setAddress(contact_Form.getAddress());
         contact.setEmail(contact_Form.getEmail());
         contact.setDescription(contact_Form.getDescription());
+        contact.setPhomeNumber(contact_Form.getPhomeNumber());
         contact.setFavarite(contact_Form.isFavarite());
         // contact.setPicture(contact_Form.getProfileImage());
         contact.setWebsitelink(contact_Form.getWebsitelink());
@@ -69,5 +81,7 @@ public class ContactController {
     public String showAllContact(){
         return"/user/showAllContact";
     }
+    
+
     
 }
