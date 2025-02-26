@@ -31,7 +31,9 @@ public class Contact_Form {
     @NotBlank(message = "Addres is required")
     private String address;
 
-    private MultipartFile profileImage;
+    private MultipartFile contactImage;
+
+    private String contacitcloudinaryPublicId;
 
     private String description;
 

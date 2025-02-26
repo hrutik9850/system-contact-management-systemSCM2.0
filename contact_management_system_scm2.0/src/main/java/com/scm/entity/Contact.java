@@ -34,6 +34,7 @@ public class Contact {
     private boolean favarite = false;
     private String websitelink ;
     private String linkedIdlink;
+    private String contacitcloudinaryPublicId;
    
     @ManyToOne
     private  User user;

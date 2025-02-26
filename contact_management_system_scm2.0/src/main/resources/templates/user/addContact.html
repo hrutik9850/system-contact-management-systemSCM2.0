@@ -19,15 +19,19 @@
                 <div class="col-span-12 flex justify-center">
                         <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
                             <div class="card block p-6  bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                 <!-- show the messages contact save or not error also -->
+                                 <div data-th-replace="~{message :: messagebox}"></div>
                                 <h1 class="text-2xl font-semibold"> Add New Contact</h1>
                                 <p class="text-gray-500">This contact will be stored on cloud, you can 
                                     direct email this contact.. </p>
+                                  
               <!-- Add contact form  -->
                                     <form  accept=""
                                     class="m-10 pt-2"
                                     data-th-action="@{'/user/contact/add'}"
                                     data-th-object="${contactForm}"
-                                    method="post" 
+                                    method="post"
+                                    enctype="multipart/form-data"
                                     
                                     >
                                         <!-- contact name  -->
@@ -117,7 +121,7 @@
                                                <!-- profile pick -->
                                         <div class="mb-3">
                                             <label class="block mb-2 text-sm font-medium text-gray-500 dark:text-white" for="file_input">Upload profile picture </label>
-                                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                                            <input  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"  type="file"data-th-field="*{contactImage}" >
                                         </div>
                                         <div class="flex items-center mb-3">
                                             <input data-th-field="*{favarite}" type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
