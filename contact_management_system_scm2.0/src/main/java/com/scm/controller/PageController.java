@@ -94,13 +94,14 @@ public class PageController {
 	@RequestMapping( value ="do_register", method=RequestMethod.POST)
 	public String procssingRegister(@Valid @ModelAttribute("userfrom") Userform userform ,BindingResult rBindingResult ,HttpSession session){
 		System.out.println("PageController.procssingRegister()");
-		System.out.println("________________________________________");
+	
 		//fetch form data 
 		//userForm
 		 System.out.println(userform);
 		// //validate form data 
 		if(rBindingResult.hasErrors()){
-			System.out.println("******************************************************");
+			System.out.println("PageController.procssingRegister()");
+			
 			return"register";
 
 		}

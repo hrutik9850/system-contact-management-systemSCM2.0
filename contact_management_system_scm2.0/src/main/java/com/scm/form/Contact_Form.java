@@ -3,6 +3,8 @@ package com.scm.form;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.scm.validator.ValiFile;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -30,7 +32,7 @@ public class Contact_Form {
     private String phomeNumber;
     @NotBlank(message = "Addres is required")
     private String address;
-
+    @ValiFile
     private MultipartFile contactImage;
 
     private String contacitcloudinaryPublicId;

@@ -118,11 +118,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                               <!-- profile pick -->
+                        <!-- profile pick -->
                                         <div class="mb-3">
                                             <label class="block mb-2 text-sm font-medium text-gray-500 dark:text-white" for="file_input">Upload profile picture </label>
-                                            <input  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"  type="file"data-th-field="*{contactImage}" >
-                                        </div>
+                                            <input  id="image_fill_input" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"  type="file"data-th-field="*{contactImage}" >
+                                            <p class="text-red-500 text-sm pl-3" 
+                                            th:if="${#fields.hasErrors('contactImage')}" 
+                                            th:errors="*{contactImage}"></p>
+                                            <!-- to show the image preview before uploading the image on the server side   adming.js file some code -->
+                                            <div class="mt-2" id="image_preview">
+                                                <img id="upload_image_priveiw" src="" alt="Image Preview" class="h-52 w-32 object-cover mx-auto rounded-lg m-2" />  
+                                            </div>
                                         <div class="flex items-center mb-3">
                                             <input data-th-field="*{favarite}" type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                             <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Is this contact is your favorite one ?.</label>
@@ -143,7 +149,6 @@
         </div>
      </div>
     
-
-
+<script data-th-src="@{'/js/admine.js'}"></script>
 </body>
 </html>
